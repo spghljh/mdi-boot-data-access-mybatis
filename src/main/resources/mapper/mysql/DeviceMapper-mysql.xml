@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.mdi.device.mapper.DeviceMapper">
+
+    <!-- 컬럼명 ↔ DTO 필드명 매핑 -->
+    <resultMap id="deviceResultMap" type="kr.co.mdi.device.dto.DeviceDTO">
+        <id property="idDevice" column="id_device"/>
+        <result property="nameDevice" column="name_device"/>
+        <result property="idCpu" column="id_cpu"/>
+        <result property="lineupDevice" column="lineup_device"/>
+        <result property="releaseDevice" column="release_device"/>
+        <result property="weightDevice" column="weight_device"/>
+        <result property="typeCodeDevice" column="type_code_device"/>
+        <result property="manfCodeDevice" column="manf_code_device"/>
+    </resultMap>
+
+    <!-- 전체 조회 -->
+    <select id="selectAllDevices" resultMap="deviceResultMap">
+        SELECT id_device, name_device, id_cpu, lineup_device, release_device,
+               weight_device, type_code_device, manf_code_device
+        FROM device
+    </select>
+
+    <!-- 단건 조회 -->
+    <select id="selectDeviceById" parameterType="long" resultMap="deviceResultMap">
+        SELECT id_device, name_device, id_cpu, lineup_device, release_device,
+               weight_device, type_code_device, manf_code_device
+        FROM device
+        WHERE id_device = #{id}
+    </select>
+
+    <!-- 등록 -->
+    <insert id="insertDevice" parameterType="kr.co.mdi.device.dto.DeviceDTO" useGeneratedKeys="true" keyProperty="idDevice">
+        INSERT INTO device (name_device, id_cpu, lineup_device, release_device,
+                            weight_device, type_code_device, manf_code_device)
+        VALUES (#{nameDevice}, #{idCpu}, #{lineupDevice}, #{releaseDevice},
+                #{weightDevice}, #{typeCodeDevice}, #{manfCodeDevice})
+    </insert>
+
+    <!-- 수정 -->
+    <update id="updateDevice" parameterType="kr.co.mdi.device.dto.DeviceDTO">
+        UPDATE device
+        SET name_device=#{nameDevice}, id_cpu=#{idCpu}, lineup_device=#{lineupDevice},
+            release_device=#{releaseDevice}, weight_device=#{weightDevice},
+            type_code_device=#{typeCodeDevice}, manf_code_device=#{manfCodeDevice}
+        WHERE id_device=#{idDevice}
+    </update>
+
+    <!-- 삭제 -->
+    <delete id="deleteDevice" parameterType="long">
+        DELETE FROM device WHERE id_device=#{id}
+    </delete>
+
+</mapper>

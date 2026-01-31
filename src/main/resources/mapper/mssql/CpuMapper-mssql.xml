@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.mdi.cpu.mapper.CpuMapper">
+
+    <resultMap id="cpuResultMap" type="kr.co.mdi.cpu.dto.CpuDTO">
+        <id property="idCpu" column="id_cpu"/>
+        <result property="nameCpu" column="name_cpu"/>
+        <result property="releaseCpu" column="release_cpu"/>
+        <result property="coreCpu" column="core_cpu"/>
+        <result property="threadCpu" column="thread_cpu"/>
+        <result property="maxGhzCpu" column="maxghz_cpu"/>
+        <result property="minGhzCpu" column="minghz_cpu"/>
+        <result property="typeCodeCpu" column="type_code_cpu"/>
+        <result property="manfCodeCpu" column="manf_code_cpu"/>
+    </resultMap>
+
+    <select id="selectAllCpus" resultMap="cpuResultMap">
+        SELECT id_cpu, name_cpu, release_cpu, core_cpu, thread_cpu,
+               maxghz_cpu, minghz_cpu, type_code_cpu, manf_code_cpu
+        FROM cpu
+    </select>
+
+    <select id="selectCpuById" parameterType="long" resultMap="cpuResultMap">
+        SELECT id_cpu, name_cpu, release_cpu, core_cpu, thread_cpu,
+               maxghz_cpu, minghz_cpu, type_code_cpu, manf_code_cpu
+        FROM cpu
+        WHERE id_cpu = #{id}
+    </select>
+
+    <insert id="insertCpu" parameterType="kr.co.mdi.cpu.dto.CpuDTO" useGeneratedKeys="true" keyProperty="idCpu">
+        INSERT INTO cpu (name_cpu, release_cpu, core_cpu, thread_cpu,
+                         maxghz_cpu, minghz_cpu, type_code_cpu, manf_code_cpu)
+        VALUES (#{nameCpu}, #{releaseCpu}, #{coreCpu}, #{threadCpu},
+                #{maxGhzCpu}, #{minGhzCpu}, #{typeCodeCpu}, #{manfCodeCpu})
+    </insert>
+
+    <update id="updateCpu" parameterType="kr.co.mdi.cpu.dto.CpuDTO">
+        UPDATE cpu
+        SET name_cpu=#{nameCpu}, release_cpu=#{releaseCpu}, core_cpu=#{coreCpu},
+            thread_cpu=#{threadCpu}, maxghz_cpu=#{maxGhzCpu}, minghz_cpu=#{minGhzCpu},
+            type_code_cpu=#{typeCodeCpu}, manf_code_cpu=#{manfCodeCpu}
+        WHERE id_cpu=#{idCpu}
+    </update>
+
+    <delete id="deleteCpu" parameterType="long">
+        DELETE FROM cpu WHERE id_cpu=#{id}
+    </delete>
+
+</mapper>
