@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>kr.co.mdi</groupId>
-    <artifactId>mdi-boot-data-access-mybatis</artifactId>
+    <artifactId>mdi-boot-data-access-pstmt</artifactId>
     <version>0.1</version>
     <name>mdi-boot-app</name>
     <description>mobile-device-info</description>
@@ -161,24 +161,12 @@
 <!--		    <version>0.11.5</version>-->
 <!--		    <scope>runtime</scope>-->
 <!--		</dependency>	-->
-
-		<dependency>
-		    <groupId>org.mybatis.spring.boot</groupId>
-		    <artifactId>mybatis-spring-boot-starter</artifactId>
-		    <version>3.0.3</version> <!-- 최신 안정 버전 확인 -->
-		</dependency>
 		
-		<dependency>
-		    <groupId>org.mybatis.generator</groupId>
-		    <artifactId>mybatis-generator-core</artifactId>
-		    <version>1.4.2</version>
-		</dependency>
-		
-		<dependency>
-		    <groupId>org.mybatis.dynamic-sql</groupId>
-		    <artifactId>mybatis-dynamic-sql</artifactId>
-		    <version>1.5.0</version>
-		</dependency>
+	    <dependency>
+	        <groupId>org.mybatis.spring.boot</groupId>
+	        <artifactId>mybatis-spring-boot-starter</artifactId>
+	        <version>3.0.3</version>
+	    </dependency>
 
     </dependencies>
 
@@ -247,47 +235,36 @@
 	            </configuration>
 	        </plugin>
 	
-	        <plugin>
-	            <groupId>org.apache.maven.plugins</groupId>
-	            <artifactId>maven-antrun-plugin</artifactId>
-	            <version>3.0.0</version>
-	            <executions>
-	                <execution>
-	                    <phase>package</phase>
-	                    <goals>
-	                        <goal>run</goal>
-	                    </goals>
-	                    <configuration>
-	                        <target>
-	                            <!-- dist 디렉토리 생성 -->
-	                            <delete dir="${project.basedir}/dist" failonerror="false"/>
-	                            <mkdir dir="${project.basedir}/dist"/>
+			<plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-antrun-plugin</artifactId>
+			    <version>3.0.0</version>
+			    <executions>
+			        <execution>
+			            <phase>package</phase>
+			            <goals>
+			                <goal>run</goal>
+			            </goals>
+			            <configuration>
+			                <target>
+			                    <!-- dist 디렉토리 생성 -->
+			                    <delete dir="${project.basedir}/dist" failonerror="false"/>
+			                    <mkdir dir="${project.basedir}/dist"/>
+			
+			                    <!-- JAR 복사 (이건 원래 finalName.jar 그대로라 유지) -->
+			                    <copy file="${project.build.directory}/${project.build.finalName}.jar"
+			                          tofile="${project.basedir}/dist/${project.build.finalName}.jar"/>
+			
+			                    <!-- SBOM 복사 (원본 이름 application.cdx.json 유지) -->
+			                    <copy file="${project.build.outputDirectory}/META-INF/sbom/application.cdx.json"
+			                          tofile="${project.basedir}/dist/application.cdx.json"
+			                          failonerror="false"/>
+			                </target>
+			            </configuration>
+			        </execution>
+			    </executions>
+			</plugin>
 
-	                            <!-- JAR 복사 -->
-	                            <copy file="${project.build.directory}/${project.build.finalName}.jar"
-	                                  tofile="${project.basedir}/dist/${project.build.finalName}.jar"/>
-
-	                            <!-- SBOM 복사 및 이름 변경 -->
-	                            <!-- <copy file="${project.build.directory}/bom.json"
-	                                  tofile="${project.basedir}/dist/${project.build.finalName}-sbom.json"/> -->
-	                            <copy file="${project.build.outputDirectory}/META-INF/sbom/application.cdx.json"
-	                                  tofile="${project.basedir}/dist/${project.build.finalName}-sbom.json"
-	                                  failonerror="false"/>
-
-	                            <!-- Cosign 서명 번들 복사 -->
-	                            <copy file="${project.basedir}/output.bundle"
-	                                  tofile="${project.basedir}/dist/${project.build.finalName}-output.bundle"
-	                                  failonerror="false"/>
-	
-	                            <!-- Cosign 공개키 복사 -->
-	                            <copy file="${project.basedir}/keys/cosign.pub"
-	                                  tofile="${project.basedir}/dist/cosign.pub"
-	                                  failonerror="false"/>
-	                        </target>
-	                    </configuration>
-	                </execution>
-	            </executions>
-	        </plugin>
 	
 	    </plugins>
 	</build>

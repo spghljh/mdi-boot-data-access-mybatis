@@ -1,10 +1,10 @@
 {
   "bomFormat" : "CycloneDX",
   "specVersion" : "1.4",
-  "serialNumber" : "urn:uuid:0857b08f-33cc-44f4-a340-ae92066f5ed7",
+  "serialNumber" : "urn:uuid:4984fdd0-db0e-4f36-a9a7-194482b98b09",
   "version" : 1,
   "metadata" : {
-    "timestamp" : "2026-02-01T07:58:44Z",
+    "timestamp" : "2026-02-05T13:26:46Z",
     "tools" : [
       {
         "vendor" : "OWASP Foundation",
@@ -48,11 +48,11 @@
     ],
     "component" : {
       "group" : "kr.co.mdi",
-      "name" : "mdi-boot-data-access-mybatis",
+      "name" : "mdi-boot-data-access-pstmt",
       "version" : "0.1",
       "description" : "mobile-device-info",
       "licenses" : [ ],
-      "purl" : "pkg:maven/kr.co.mdi/mdi-boot-data-access-mybatis@0.1?type=jar",
+      "purl" : "pkg:maven/kr.co.mdi/mdi-boot-data-access-pstmt@0.1?type=jar",
       "externalReferences" : [
         {
           "type" : "website",
@@ -64,7 +64,7 @@
         }
       ],
       "type" : "application",
-      "bom-ref" : "pkg:maven/kr.co.mdi/mdi-boot-data-access-mybatis@0.1?type=jar"
+      "bom-ref" : "pkg:maven/kr.co.mdi/mdi-boot-data-access-pstmt@0.1?type=jar"
     }
   },
   "components" : [
@@ -6374,167 +6374,11 @@
       ],
       "type" : "library",
       "bom-ref" : "pkg:maven/org.mybatis/mybatis-spring@3.0.3?type=jar"
-    },
-    {
-      "publisher" : "MyBatis.org",
-      "group" : "org.mybatis.generator",
-      "name" : "mybatis-generator-core",
-      "version" : "1.4.2",
-      "description" : "MyBatis Generator - a code generator for MyBatis.",
-      "scope" : "optional",
-      "hashes" : [
-        {
-          "alg" : "MD5",
-          "content" : "cdc5121465f82936063a03fbb5da1f79"
-        },
-        {
-          "alg" : "SHA-1",
-          "content" : "a85b1aa0f6a5cac368f014d8996afcfbff1feb54"
-        },
-        {
-          "alg" : "SHA-256",
-          "content" : "38c02f3ff9a41bdf9d5d7ca5fbd9c7d7e5aba07a33d5fe626529fe14e5cf1724"
-        },
-        {
-          "alg" : "SHA-512",
-          "content" : "5ae90300a3c6c627e2331c035070fdd9347fb7c4affd2d7b856712294586df46f07de8a7030e7bd634b2cfeb113e722a204faac41b16eb5ed5e9c31ecbe70fb4"
-        },
-        {
-          "alg" : "SHA-384",
-          "content" : "d5cd81b55d6d9d4b82db234c3bf693b77e3041b6a873489ad7c3c67af14c666f71a5ff126c105e4fa24739af59b0e1fa"
-        },
-        {
-          "alg" : "SHA3-384",
-          "content" : "e426d977aa69e7bde6be2facb5bc7f210cc8f952bb91120bab37d2c1c2d1461c064c5c86feccf507bd20d261a082d894"
-        },
-        {
-          "alg" : "SHA3-256",
-          "content" : "541b27ddf1e698eadfa38183dd89e6a5097198de18242fac1c3f42cae6b3a818"
-        },
-        {
-          "alg" : "SHA3-512",
-          "content" : "adf14cd9719038f6514eec0812f7004674211276d0b2d4f6d3681e88e12cf93e0eccf3899f64b989802516aed28609291b16b494bac23575e031d0f01621f2f7"
-        }
-      ],
-      "licenses" : [
-        {
-          "license" : {
-            "id" : "Apache-2.0"
-          }
-        }
-      ],
-      "purl" : "pkg:maven/org.mybatis.generator/mybatis-generator-core@1.4.2?type=jar",
-      "externalReferences" : [
-        {
-          "type" : "website",
-          "url" : "https://www.mybatis.org/mybatis-generator/mybatis-generator-core/"
-        },
-        {
-          "type" : "build-system",
-          "url" : "https://github.com/mybatis/generator/actions"
-        },
-        {
-          "type" : "distribution",
-          "url" : "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
-        },
-        {
-          "type" : "issue-tracker",
-          "url" : "https://github.com/mybatis/generator/issues"
-        },
-        {
-          "type" : "mailing-list",
-          "url" : "https://groups.google.com/forum/#!forum/mybatis-dev"
-        },
-        {
-          "type" : "vcs",
-          "url" : "https://github.com/mybatis/generator"
-        }
-      ],
-      "type" : "library",
-      "bom-ref" : "pkg:maven/org.mybatis.generator/mybatis-generator-core@1.4.2?type=jar"
-    },
-    {
-      "publisher" : "MyBatis.org",
-      "group" : "org.mybatis.dynamic-sql",
-      "name" : "mybatis-dynamic-sql",
-      "version" : "1.5.0",
-      "description" : "MyBatis framework for generating dynamic SQL",
-      "scope" : "optional",
-      "hashes" : [
-        {
-          "alg" : "MD5",
-          "content" : "34365d05c2d8b0abc8a41ea26dd78987"
-        },
-        {
-          "alg" : "SHA-1",
-          "content" : "46cbf8f7b251e4c05abd0bda109eaae53ec3a79e"
-        },
-        {
-          "alg" : "SHA-256",
-          "content" : "98e4e8c1f2dd633100b0520386fb5f759123bfab645e4ba9e730d5428aa1fe61"
-        },
-        {
-          "alg" : "SHA-512",
-          "content" : "a0d76876d97205bb4a456ebe7acc91e8732f15ea10e6c6fe2ceab3053f2171ce9957fdc1a7e482962746087524295e414a9ebe92771beed49f68ba04fd1c0e38"
-        },
-        {
-          "alg" : "SHA-384",
-          "content" : "e9fc27e27bed258582241553aaa420ba40ab10aebf1907fba61eb0c020a95c2b6201f69eb49b30ba153a0ca9942ccb38"
-        },
-        {
-          "alg" : "SHA3-384",
-          "content" : "95b063b67c3cc2825d31cf683e3dcd4bd0b60b177b9dc0f3f8369ef27e3b91b545d1862c221388f65f841a8dc328dae9"
-        },
-        {
-          "alg" : "SHA3-256",
-          "content" : "c66a3abe194bcb4d2c3b7b5c2f26ec48d6a45240b0db854b3d7442a676fcb72e"
-        },
-        {
-          "alg" : "SHA3-512",
-          "content" : "37422755ab49ea4df15e64d09f9724eebaa0c504215d421c9dfd08c2a46b5b3fe3afeb92ebdcb53abd738d2179b2dbb20ce6a05347e9a8f212ab53c28804e6e6"
-        }
-      ],
-      "licenses" : [
-        {
-          "license" : {
-            "id" : "Apache-2.0"
-          }
-        }
-      ],
-      "purl" : "pkg:maven/org.mybatis.dynamic-sql/mybatis-dynamic-sql@1.5.0?type=jar",
-      "externalReferences" : [
-        {
-          "type" : "website",
-          "url" : "https://www.mybatis.org/mybatis-dynamic-sql/"
-        },
-        {
-          "type" : "build-system",
-          "url" : "https://github.com/mybatis/mybatis-dynamic-sql/actions"
-        },
-        {
-          "type" : "distribution",
-          "url" : "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
-        },
-        {
-          "type" : "issue-tracker",
-          "url" : "https://github.com/mybatis/mybatis-dynamic-sql/issues"
-        },
-        {
-          "type" : "mailing-list",
-          "url" : "https://groups.google.com/forum/#!forum/mybatis-dev"
-        },
-        {
-          "type" : "vcs",
-          "url" : "https://github.com/mybatis/mybatis-dynamic-sql"
-        }
-      ],
-      "type" : "library",
-      "bom-ref" : "pkg:maven/org.mybatis.dynamic-sql/mybatis-dynamic-sql@1.5.0?type=jar"
     }
   ],
   "dependencies" : [
     {
-      "ref" : "pkg:maven/kr.co.mdi/mdi-boot-data-access-mybatis@0.1?type=jar",
+      "ref" : "pkg:maven/kr.co.mdi/mdi-boot-data-access-pstmt@0.1?type=jar",
       "dependsOn" : [
         "pkg:maven/org.springframework.boot/spring-boot-starter-data-jpa@3.5.5?type=jar",
         "pkg:maven/org.springframework.boot/spring-boot-starter-thymeleaf@3.5.5?type=jar",
@@ -6549,9 +6393,7 @@
         "pkg:maven/org.mindrot/jbcrypt@0.4?type=jar",
         "pkg:maven/jakarta.servlet/jakarta.servlet-api@6.0.0?type=jar",
         "pkg:maven/net.logstash.logback/logstash-logback-encoder@7.2?type=jar",
-        "pkg:maven/org.mybatis.spring.boot/mybatis-spring-boot-starter@3.0.3?type=jar",
-        "pkg:maven/org.mybatis.generator/mybatis-generator-core@1.4.2?type=jar",
-        "pkg:maven/org.mybatis.dynamic-sql/mybatis-dynamic-sql@1.5.0?type=jar"
+        "pkg:maven/org.mybatis.spring.boot/mybatis-spring-boot-starter@3.0.3?type=jar"
       ]
     },
     {
@@ -7122,14 +6964,6 @@
     },
     {
       "ref" : "pkg:maven/org.mybatis/mybatis-spring@3.0.3?type=jar",
-      "dependsOn" : [ ]
-    },
-    {
-      "ref" : "pkg:maven/org.mybatis.generator/mybatis-generator-core@1.4.2?type=jar",
-      "dependsOn" : [ ]
-    },
-    {
-      "ref" : "pkg:maven/org.mybatis.dynamic-sql/mybatis-dynamic-sql@1.5.0?type=jar",
       "dependsOn" : [ ]
     },
     {

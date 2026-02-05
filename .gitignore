@@ -38,13 +38,6 @@ logs/
 *.lock
 .env
 
-# 민감 정보만 제외
-keys/cosign.key
-!keys/cosign.pub         # 공개키는 추적
-
-# 루트 번들 파일은 추적
-!output.bundle            # 루트에 생성된 서명 번들 포함
-
 # dist 디렉토리는 추적 (배포 대상)
 !dist/
 !dist/**
@@ -53,7 +46,6 @@ dist/*.jar
 # SSL
 application.properties
 application.yml
-keystore.p12
 
 application-dev.properties
 application-dev-user-maria.properties
